@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Press Start 2P", "Anton", "Arial Narrow", sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --color-ink: #0a0a0a;
+  --color-ink-panel: #141414;
+  --color-ink-panel-light: #1c1c1c;
+  --color-paper: #f5f1e6;
+  --color-paper-dim: #9a9488;
+  --color-ochre: #fdb813;
+  --color-ochre-dim: #a87a10;
+}
+
+:root {
+  /* signature "snap" ease used across every scroll/hover choreography —
+     fast out, long settle, gives the site its punk-poster snap instead of
+     generic ease-in-out */
+  --ease-snap: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-power: cubic-bezier(0.65, 0, 0.35, 1);
+  --cursor-scale: 1;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-ochre);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ochre);
+    outline-offset: 3px;
+  }
+
+  /* fluid display type — scales the headline signature across viewport
+     instead of jumping between two fixed Tailwind breakpoints */
+  .fluid-h1 {
+    font-size: clamp(2.75rem, 3.2vw + 2rem, 7.5rem);
+  }
+  .fluid-h2 {
+    font-size: clamp(2.25rem, 2.6vw + 1.4rem, 5rem);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a,
+  button {
+    cursor: none;
+  }
+}
+
+/* halftone dot overlay — riso/gig-poster texture, sharper edge than soft grain */
+.halftone-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: radial-gradient(circle, #fff 1px, transparent 1.4px);
+  background-size: 4px 4px;
+}
+
+.hazard-tag {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  padding-left: 0.6em;
+  border-left: 2px solid var(--color-ochre);
+}
+
+/* diagonal cut divider between sections — graphic, not decorative-default */
+.cut-divider {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 24px), 0 100%);
+}
+.cut-divider-rev {
+  clip-path: polygon(0 24px, 100% 0, 100% 100%, 0 100%);
+}
+
+/* per-word mask wrapper for RevealText — clips each word so the inner span
+   can translateY in from below; inline-block (not block) so words still
+   wrap naturally inside headings/paragraphs */
+.reveal-line {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* custom cursor: small solid dot + a lagging outline ring. Ring scales up
+   and fills solid on interactive elements (see MagneticButton / links with
+   data-cursor="link"), dot hides on the same trigger so it doesn't double
+   up inside the ring. */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 100;
+  border-radius: 9999px;
+  will-change: transform;
+  mix-blend-mode: difference;
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-paper);
+  transform: translate(-50%, -50%);
+}
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--color-paper);
+  transform: translate(-50%, -50%);
+}
+.cursor-ring[data-active="true"] {
+  background: var(--color-ochre);
+  border-color: var(--color-ochre);
+  mix-blend-mode: normal;
+}
+
+@media (max-width: 767px), (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+@keyframes scroll-cue {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+.animate-scroll-cue {
+  animation: scroll-cue 1.6s var(--ease-power) infinite;
+}
+
+/* preloader curtain — diagonal cut, matching cut-divider motif */
+.preloader-panel {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  body {
+    cursor: auto;
+  }
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}

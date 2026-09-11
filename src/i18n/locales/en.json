@@ -1,0 +1,81 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "discography": "Discography",
+    "tours": "Tours",
+    "booking": "Booking",
+    "contacts": "Contacts"
+  },
+  "hero": {
+    "kicker": "Pauzern rock out of Astrakhan",
+    "manifesto": "A genre easier to witness than to explain.",
+    "sub": "Eight albums. Sixteen years on stage. Not one dull night.",
+    "cta": "See tour dates"
+  },
+  "home": {
+    "explore": {
+      "kicker": "Next up",
+      "title": "Where to next",
+      "about": { "title": "About", "desc": "Astrakhan → Moscow → everywhere, and who came along." },
+      "discography": { "title": "Discography", "desc": "Eight albums, one genre — never the same twice." },
+      "tours": { "title": "Tours", "desc": "Upcoming dates and tickets." },
+      "booking": { "title": "Booking", "desc": "Booking the band for a show? Start here." }
+    }
+  },
+  "origin": {
+    "kicker": "01 — Case file",
+    "title": "Astrakhan → Moscow → everywhere",
+    "body": "2009, Astrakhan: the debut album drops and the band hits the road for the first time, Moscow included. A year later they relocate to the capital for good. That's where a friendship with Noize MC begins — one that later turns into joint tracks and never really stops."
+  },
+  "discography": {
+    "kicker": "02 — Timeline",
+    "title": "Eight albums, one genre that never sounds the same twice",
+    "sub": "From the debut to the freshly released 'Night With an Astrakhan Native' — no gaps."
+  },
+  "collabs": {
+    "kicker": "03 — Ties",
+    "title": "Company that raises the bar",
+    "body": "A long-running friendship and joint tracks with Noize MC. Two hits with punk veterans Tarakany!, one of them holding the top spot on a major rock chart for twenty weeks straight."
+  },
+  "tours": {
+    "kicker": "04 — Dates",
+    "title": "Upcoming shows",
+    "cta": "Buy tickets",
+    "tba": "Date TBA"
+  },
+  "booking": {
+    "kicker": "05 — For promoters",
+    "title": "Booking the band for a show?",
+    "body": "International touring circuit, a tight production crew, gear partnerships with Sennheiser, Roland, Kiesel Guitars and Adidas. Rider and terms on request.",
+    "cta": "Get in touch",
+    "materials": {
+      "title": "Press kit & rider",
+      "hint": "Password-protected — access for promoters and partners only.",
+      "placeholder": "Password",
+      "unlock": "Unlock",
+      "wrong": "Wrong password",
+      "download": "Download PDF"
+    }
+  },
+  "partners": {
+    "kicker": "06 — Partners",
+    "title": "Who works with us"
+  },
+  "diy": {
+    "kicker": "07 — No sponsors",
+    "title": "Funded by the crowd",
+    "body": "Mastering for two albums was crowdfunded on Planeta.ru — both times the goal was hit ahead of schedule. Not a label's money. The audience paid upfront."
+  },
+  "contacts": {
+    "kicker": "08 — Reach us",
+    "title": "Socials & contacts"
+  },
+  "footer": {
+    "rights": "© Anacondaz. Official band website.",
+    "backHome": "Back home"
+  },
+  "notFound": {
+    "title": "Page not found"
+  }
+}
